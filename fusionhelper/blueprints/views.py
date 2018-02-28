@@ -1,5 +1,5 @@
 from . import dbutil
-from flask import Blueprint, render_template, abort, current_app
+from flask import Blueprint, render_template, aborts
 
 
 bp = Blueprint('views', __name__)
@@ -40,7 +40,7 @@ def card_page(card_id):
     if not card or not card_types or not star_names:
         abort(404)
 
-    return render_template('card.html', card=card, types=card_types, stars=star_names, config=current_app.config)
+    return render_template('card.html', card=card, types=card_types, stars=star_names)
 
 
 @bp.route('/calc/', methods=['GET'])
