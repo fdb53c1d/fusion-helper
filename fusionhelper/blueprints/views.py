@@ -1,5 +1,5 @@
 from . import dbutil
-from flask import Blueprint, render_template, aborts
+from flask import Blueprint, render_template, abort
 
 
 bp = Blueprint('views', __name__)
