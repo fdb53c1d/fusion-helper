@@ -1,0 +1,96 @@
+body {
+    background: #f1f1f1;
+    font-family: sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#wrapper {
+    max-width: 1500px;
+    margin: 0 auto 0;
+    background: white;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+hr {
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+    border-top: 1px solid lightgray;
+}
+
+input {
+    border: 1px solid gray;
+}
+
+header {
+    text-align: center;
+    padding-top: 1px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    background: dodgerblue;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+nav a:hover {
+    background: deepskyblue;
+}
+
+main {
+    flex-grow: 1;
+}
+
+#inputsection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cardcontainer {
+    display: inline-block;
+    margin: 5px;
+}
+
+.cardpreview {
+    width: 150px;
+    height: 214px;
+    border: 1px dashed black;
+    margin: 5px auto 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+}
+
+.cardpreview img {
+    width: 150px;
+}
+
+#results {
+    white-space: pre;
+    font-family: monospace;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: gray;
+    color: white;
+    margin-top: 10px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ card.Id ~ ' - ' ~ card.Name}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+</head>
+<body>
+
+<div id="wrapper">
+    <table class="tg">
+        <tr>
+            <td class="tg-yw4l" rowspan="10">
+                {% if config.DISPLAY_CARD_IMAGES|string == 'True' %}
+                    <img src="{{ url_for('static', filename='img/cards/' ~ card.Id ~ '.png') }}">
+                {% else %}
+                    <img src="{{ url_for('static', filename='img/cards/back.jpg') }}">
+                {% endif %}
+            </td>
+            <td class="tg-yw4l">
+                {% if card.Type < 20 %}
+                    <img src="{{ url_for('static', filename='img/types/' ~ card.Type ~ '.png') }}">
+                {% endif %}
+                {{ types[card.Type].Type }}
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-yw4l" rowspan="3">
+                {% if card.Type < 20 %}
+                    GUARDIAN STAR
+                    <ul>
+                        <li class="star-{{ stars[card.GuardianStarA - 1].Star }}">{{ stars[card.GuardianStarA - 1].Star }}</li>
+                        <li class="star-{{ stars[card.GuardianStarB - 1].Star }}">{{ stars[card.GuardianStarB - 1].Star }}</li>
+                    </ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td class="tg-yw4l" rowspan="6">{{ card.Description|nl2br }}</td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td class="tg-yw4l" colspan="2">{{ card.Id ~ ' - ' ~ card.Name}}</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

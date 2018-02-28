@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fusion Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calc.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auto-complete.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/auto-complete.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/calc.js') }}"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <header>
+        <h1>Fusion Calculator</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('views.index') }}">Card List</a>
+        <a href="{{ url_for('views.fusion_calc') }}">Fusion Calculator</a>
+    </nav>
+    <hr>
+    <main>
+        <section id="inputsection">
+            {% for i in range(5) %}
+                <div class="cardcontainer">
+                    <div id="cardpreview{{ i + 1 }}" class="cardpreview">
+                        <span>Card {{ i + 1 }}</span>
+                    </div>
+                    <div class="inputholder">
+                        <input name="cardinput{{ i + 1 }}" class="cardinput" size="32">
+                        <input type="hidden" name="cardid{{ i + 1 }}" class="cardid">
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+        <hr>
+        <section id="results">
+
+        </section>
+    </main>
+    <footer>
+        Footer
+    </footer>
+</div>
+
+<script type="text/javascript">
+    var static_root = '{{ url_for('static', filename='') }}';
+    var card_types = {{ '[' -}}
+        {% for type in types -%}
+            {{ "'"|safe ~ type.Type ~ "'"|safe -}}
+            {{ ',' if not loop.last -}}
+        {% endfor %}];
+    var card_list = {{ '{' -}}
+        {% for card in cards -%}
+        {{ card.Id ~ ':{' -}}
+        {{ 'Name:"'|safe ~ card.Name|safe ~ '"'|safe -}}
+        {{ ',Attack:' ~ card.Attack -}}
+        {{ ',Defense:' ~ card.Defense -}}
+        {{ ',Type: ' ~ card.Type ~ '}' -}}
+        {{ ',' if not loop.last -}}
+        {% endfor %}{{ '}' -}};
+</script>
+
+</body>
+</html>

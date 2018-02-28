@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Card List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <header>
+        <h1>Card List</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('views.index') }}">Card List</a>
+        <a href="{{ url_for('views.fusion_calc') }}">Fusion Calculator</a>
+    </nav>
+    <hr>
+    <main>
+        <section>
+            <table id="card-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for card in cards %}
+                    <tr class="{% if card.Type < 20 -%}monster{% endif %}
+                        {% if card.Type in (20, 23) -%}magic{% endif %}
+                        {% if card.Type == 21 -%}trap{% endif %}
+                        {% if card.Type == 22 -%}ritual{% endif %}">
+                        <td>{{ card.Id }}</td>
+                        <td><a href="{{ url_for('views.card_page', card_id=card.Id) }}">{{ card.Name }}</a></td>
+                        <td>{{ types[card.Type].Type }}</td>
+                        <td>{% if card.Type < 20 %} {{ card.Attack }} {% endif %}</td>
+                        <td>{% if card.Type < 20 %} {{ card.Defense }} {% endif %}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        Footer
+    </footer>
+</div>
+
+</body>
+</html>

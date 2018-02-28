@@ -1,0 +1,99 @@
+body {
+    background: #f1f1f1;
+    font-family: sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#wrapper {
+    max-width: 1500px;
+    margin: 0 auto 0;
+    background: white;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+    border-top: 1px solid lightgray;
+}
+
+header {
+    text-align: center;
+    padding-top: 1px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a, nav a:visited {
+    background: dodgerblue;
+    color: white !important;
+    font-weight: bold;
+    padding: 5px;
+}
+
+nav a:hover {
+    background: deepskyblue;
+    text-decoration: none !important;
+}
+
+main {
+    flex-grow: 1;
+}
+
+#card-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: white;
+    font-size: 13px;
+    text-align: center;
+}
+
+#card-table tr {
+    border: 1px solid black;
+}
+
+#card-table tr th, #card-table tr td {
+    padding: 5px;
+    /*text-align: center;*/
+}
+
+.monster {
+    background: #E6E6D1;
+}
+
+.magic {
+    background: #EEF8F0;
+}
+
+.trap {
+    background: #FBEEFF;
+}
+
+.ritual {
+    background: #CED4EC;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: gray;
+    color: white;
+    margin-top: 10px;
+}
